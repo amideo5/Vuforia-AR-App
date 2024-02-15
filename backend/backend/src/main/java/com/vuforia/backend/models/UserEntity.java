@@ -1,13 +1,12 @@
 package com.vuforia.backend.models;
 
-import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
-//import org.springframework.data.annotation.Id;
 
+import javax.persistence.*;
 import java.util.Date;
 
 @Getter
@@ -19,7 +18,7 @@ import java.util.Date;
 public class UserEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long userId;
 
     @CreationTimestamp

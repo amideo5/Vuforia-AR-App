@@ -15,7 +15,7 @@ public interface UserRepository extends CrudRepository<UserEntity, Long> {
 
     void deleteById(Long userId);
 
-    Optional<UserEntity> findByuserId(String userId);
+    UserEntity findByuserName(String userName);
 
     Optional<UserEntity> findById(Long userId);
 }
