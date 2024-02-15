@@ -8,12 +8,14 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public interface UserRepository extends CrudRepository<UserEntity, String> {
+public interface UserRepository extends CrudRepository<UserEntity, Long> {
     UserEntity save(UserEntity user);
 
     List<UserEntity> findAll();
 
-    void deleteById(String userId);
+    void deleteById(Long userId);
 
-    Optional<UserEntity> findById(String userId);
+    Optional<UserEntity> findByuser(Long userId)
+
+    Optional<UserEntity> findById(Long userId);
 }

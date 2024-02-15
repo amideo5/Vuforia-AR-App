@@ -22,7 +22,7 @@ public class UserController {
     }
 
     @GetMapping("/byId/{id}")
-    UserEntity getUser(@PathVariable String id) {
+    UserEntity getUser(@PathVariable Long id) {
         UserEntity user = userRepository.findById(id)
                 .orElseThrow(() -> new UserNotFoundException(id));
         return user;
@@ -34,7 +34,7 @@ public class UserController {
     }
 
     @PutMapping("/update/{id}")
-    UserEntity replaceEmployee(@RequestBody UserEntity newUser, @PathVariable String id) {
+    UserEntity replaceEmployee(@RequestBody UserEntity newUser, @PathVariable Long id) {
 
         UserEntity user = userRepository.findById(id)
                 .orElseThrow(() -> new UserNotFoundException(id));
@@ -45,7 +45,7 @@ public class UserController {
     }
 
     @DeleteMapping("/delete/{id}")
-    void deleteEmployee(@PathVariable String id) {
+    void deleteEmployee(@PathVariable Long id) {
         userRepository.deleteById(id);
     }
 }

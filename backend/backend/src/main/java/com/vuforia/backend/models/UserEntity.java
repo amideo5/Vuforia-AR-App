@@ -20,10 +20,12 @@ public class UserEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private String userId;
+    private Long userId;
 
     @CreationTimestamp
     private Date created;
+
+    private String userName;
 
     private String name;
 
