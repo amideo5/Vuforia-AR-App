@@ -9,7 +9,6 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class UserServiceImpl implements UserService{
@@ -48,7 +47,15 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public String updateUser(String username, UserEntity user) throws UserNotFoundException, UserAlreadyExistException {
+    public UserEntity getUserByEmail(String email) throws UserNotFoundException {
+        if(userRepository.findByEmail(email) == null){
+            throw new UserNotFoundException(email);
+        }
+        return userRepository.findByEmail(email);
+    }
+
+    @Override
+    public String updateUser(String username, UserEntity user) throws UserNotFoundException {
         if(userRepository.findByuserName(username) == null) {
             throw new UserNotFoundException(username);
         }
@@ -67,11 +74,11 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public String signInUser(UserEntity user) {
-        if(user.getUserName()==null||user.getPassword()==null)
+    public String signInUser(String username, String password) {
+        if(username==null||password==null)
             return "Bad credentials";
-        UserEntity user1 = userRepository.findByuserName(user.getUserName());
-        if(bCryptPasswordEncoder.matches(user.getPassword() ,user1.getPassword()))
+        UserEntity user1 = userRepository.findByuserName(username);
+        if(bCryptPasswordEncoder.matches(password ,user1.getPassword()))
             return "Successful";
         else
             return "Bad Credentials";

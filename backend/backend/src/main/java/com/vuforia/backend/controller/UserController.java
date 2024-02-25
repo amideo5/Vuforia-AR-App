@@ -36,6 +36,17 @@ public class UserController {
         }
     }
 
+    @GetMapping(path = "/getUserByEmail/{email}")
+    public ResponseEntity<?> getUserByEmail(@PathVariable String email) throws UserNotFoundException {
+        try{
+            UserEntity user = userService.getUserByEmail(email);
+            return ResponseEntity.status(HttpStatus.OK).body(user);
+        }
+        catch (UserNotFoundException e){
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
+        }
+    }
+
     @PostMapping(path = "/createUser")
     public ResponseEntity<?> createUser(@RequestBody UserEntity userDetails) throws UserAlreadyExistException {
         try {
@@ -58,10 +69,10 @@ public class UserController {
         }
     }
 
-    @PostMapping("/signin")
-    public ResponseEntity<?> authenticateUser(@RequestBody UserEntity user){
+    @PostMapping("/signin/{username}/{password}")
+    public ResponseEntity<?> authenticateUser(@PathVariable String username, @PathVariable String password){
         try {
-            String signin = userService.signInUser(user);
+            String signin = userService.signInUser(username,password);
             return ResponseEntity.status(HttpStatus.OK).body(signin);
         }
         catch(Exception e){

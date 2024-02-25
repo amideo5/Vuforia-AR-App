@@ -11,8 +11,9 @@ public interface UserService {
 
     String createUser(UserEntity user) throws UserAlreadyExistException;
     UserEntity getUserByUserName(String username) throws UserNotFoundException;
+    UserEntity getUserByEmail(String email) throws UserNotFoundException;
     String updateUser(String username, UserEntity user) throws UserNotFoundException, UserAlreadyExistException;
     List<UserEntity> getUsers();
-    String signInUser(UserEntity user);
+    String signInUser(String username, String password);
     String getName(String username) throws UserNotFoundException;
 }
