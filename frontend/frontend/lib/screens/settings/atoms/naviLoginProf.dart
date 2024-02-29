@@ -27,7 +27,7 @@ class NaviLoginProf extends StatelessWidget {
                   const Padding(
                     padding: EdgeInsets.only(right: 25.0),
                     child: Text(
-                      "AR Media Hub",
+                      "AMIDEO AR WORLD",
                       style: TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.bold,

@@ -1,4 +1,4 @@
-// ignore_for_file: use_key_in_widget_constructors, library_private_types_in_public_api, file_names
+// ignore_for_file: use_key_in_widget_constructors, library_private_types_in_public_api, file_names, prefer_iterable_wheretype
 
 import 'dart:io';
 
@@ -13,7 +13,6 @@ class SettingContainer extends StatefulWidget {
 
 class _SettingContainerState extends State<SettingContainer> {
   String arMediaFolderPath = '';
-  int? thisToggle;
 
   @override
   void initState() {
@@ -22,8 +21,13 @@ class _SettingContainerState extends State<SettingContainer> {
   }
 
   Future<void> create() async {
+    Future.delayed(const Duration(seconds: 0), () {
+      if (mounted) {
+        setState(() {});
+      }
+    });
     String directory = (await getExternalStorageDirectory())!.path;
-    arMediaFolderPath = '$directory/AMIDEO AR WORLD/';
+    arMediaFolderPath = '$directory/Gallery';
     Directory arMediaFolder = Directory(arMediaFolderPath);
     if (!await arMediaFolder.exists()) {
       await arMediaFolder.create(recursive: true);
