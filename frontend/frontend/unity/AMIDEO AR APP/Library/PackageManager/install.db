@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "packages": {
+    "com.ptc.vuforia.engine": {
+      "tarball": {
+        "hash": "e5885903f78d",
+        "mtime": 1703050768000,
+        "size": 140323298,
+        "localPath": "C:\\Self\\App\\Vuforia-AR-App\\frontend\\frontend\\unity\\AMIDEO AR APP\\Packages\\com.ptc.vuforia.engine-10.20.3.tgz"
+      }
+    }
+  }
+}

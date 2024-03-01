@@ -1,0 +1,8 @@
+<linker>
+	<assembly fullname="UnityEngine.VideoModule" ignoreIfMissing="1">
+		<type fullname="UnityEngine.Video.VideoPlayer">
+			<method name="Play"/>
+			<method name="Stop"/>
+		</type>
+	</assembly>
+</linker>
