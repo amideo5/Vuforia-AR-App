@@ -43,4 +43,5 @@ app.*.map.json
 /android/app/release
 /android/unityLibrary
 
-/unity
+/unity/AMIDEO AR APP/Library/ArtifactDB
+/unity/AMIDEO AR APP/Packages/com.ptc.vuforia.engine-10.20.3.tgz
