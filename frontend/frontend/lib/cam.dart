@@ -166,7 +166,7 @@ class ARSceneState extends State<ARScene> {
               left: 20,
               right: 20,
               child: Container(
-                padding: EdgeInsets.symmetric(horizontal: 100, vertical: 20),
+                padding: const EdgeInsets.symmetric(horizontal: 100, vertical: 20),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [

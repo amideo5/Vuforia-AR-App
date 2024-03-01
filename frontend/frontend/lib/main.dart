@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:frontend/cam.dart';
+import 'package:frontend/screens/splash/splash_screen.dart';
 import 'package:frontend/services/SessionManager.dart';
 
 void main() async {
@@ -32,7 +32,9 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSwatch()
               .copyWith(secondary: const Color.fromARGB(255, 164, 164, 164))),
       debugShowCheckedModeBanner: false,
-      home: ARScene(),
+      home: SplashScreen(
+        isLoggedIn: isLoggedIn,
+      ),
     );
   }
 }
